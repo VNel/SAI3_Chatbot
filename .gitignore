@@ -30,7 +30,10 @@ __pycache__/
 
 # === Virtuelle Umgebung ===
 venv/
-.env/
+
+# === Umgebungsvariablen & Secrets ===
+.env
+.env.*
 
 # === IDE/Editor-spezifisch ===
 .vscode/
