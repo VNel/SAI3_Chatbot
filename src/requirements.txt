@@ -1,0 +1,4 @@
+llama-cpp-python
+faiss-cpu
+sentence-transformers
+PyMuPDF
