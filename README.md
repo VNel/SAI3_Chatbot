@@ -3,6 +3,8 @@ Group E
 
 C++ wird benötigt als Code interpreter
 
+Link LLM: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/resolve/main/llama-2-7b-chat.Q4_K_M.gguf
+
 ---
 
 ## For Mac
