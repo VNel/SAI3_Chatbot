@@ -3,6 +3,7 @@ Group E
 
 C++ wird benötigt als Code interpreter
 
+---
 
 ## For Mac
 
@@ -22,8 +23,7 @@ C++ wird benötigt als Code interpreter
      ```bash
      source .venv/bin/activate
      ```
-   - (If you prefer Conda, you could do something like `conda create -n rag-chatbot python=3.10` and then `conda activate rag-chatbot`.)
-
+     
 ---
 
 ## Installation (macOS)
@@ -38,3 +38,21 @@ On macOS, a full C++ toolchain with standard‐library headers is required. You 
    ```bash
    sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
    sudo xcodebuild -license accept
+
+This ensures `clang++` uses the full Xcode SDK (with headers like `<vector>` and `<mutex>`).
+
+**Verify that `clang++` is using the XcodeDefault.xctoolchain include path**  
+```bash
+clang++ -v -E -x c++ /dev/null
+
+In the “#include <...> search starts here:” section, you should see a path such as:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
+
+If you see that, the C++ standard-library headers are available.
+
+## Install Python dependencies 
+```bash
+pip install --upgrade pip
+pip install -r src/requirements.txt
+
+
