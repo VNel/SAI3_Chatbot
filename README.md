@@ -26,7 +26,7 @@ C++ wird benötigt als Code interpreter
      
 ---
 
-## Installation (macOS)
+### Installation (macOS)
 
 On macOS, a full C++ toolchain with standard‐library headers is required. You must install Xcode (or at least the Xcode SDK) before proceeding:
 
@@ -39,20 +39,20 @@ On macOS, a full C++ toolchain with standard‐library headers is required. You 
    sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
    sudo xcodebuild -license accept
 
-This ensures `clang++` uses the full Xcode SDK (with headers like `<vector>` and `<mutex>`).
+   This ensures `clang++` uses the full Xcode SDK (with headers like `<vector>` and `<mutex>`).
 
-**Verify that `clang++` is using the XcodeDefault.xctoolchain include path**  
-```bash
-clang++ -v -E -x c++ /dev/null
+3. **Verify that `clang++` is using the XcodeDefault.xctoolchain include path**  
+   ```bash
+   clang++ -v -E -x c++ /dev/null
+   ```
+   In the “#include <...> search starts here:” section, you should see a path such as:
 
-In the “#include <...> search starts here:” section, you should see a path such as:
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
+   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
 
-If you see that, the C++ standard-library headers are available.
+   If you see that, the C++ standard-library headers are available.
 
-## Install Python dependencies 
-```bash
-pip install --upgrade pip
-pip install -r src/requirements.txt
-
-
+4. **Install Python dependencies**
+   ```bash
+   pip install --upgrade pip
+   pip install -r src/requirements.txt
+   ```
