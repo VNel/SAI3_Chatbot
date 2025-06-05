@@ -1,0 +1,38 @@
+# === Modelle & große Dateien ===
+models/
+*.gguf
+*.bin
+*.pt
+*.ckpt
+*.safetensors
+
+# === Vektordatenbank & Embeddings ===
+vectorstore/
+*.faiss
+documents.json
+
+# === Temporäre / Hilfsdateien ===
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# === Python & Cache ===
+__pycache__/
+*.pyc
+*.pyo
+
+# === Jupyter Notebooks ===
+*.ipynb
+*.ipynb_checkpoints/
+
+# === Virtuelle Umgebung ===
+venv/
+.env/
+
+# === IDE/Editor-spezifisch ===
+.vscode/
+.idea/
+*.code-workspace
