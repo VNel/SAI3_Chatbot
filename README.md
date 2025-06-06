@@ -44,16 +44,18 @@ python --version
 
 # 🔧 Setup – Step by Step
 
-## 1. 📁 Clone the Project via Git
+# !For the following steps use CMD (Windows) / Terminal (Mac)!
+
+## 1. 📁 Clone the Project
 
 ```bash
 git clone https://github.com/VNel/SAI3_Chatbot.git
 cd SAI3_Chatbot/online_chatbot
 ```
 
-## 2. 🪪 Set Up Virtual Environment
+## 2. 🪪 Set Up Virtual Environment 
 
-* **Windows PowerShell:**
+* **Windows:**
 
 ```bash
 py -m venv venv
@@ -67,13 +69,13 @@ python -m venv venv
 
 ### Then activate:
 
-* **Windows PowerShell:**
+* **Windows:**
 
 ```bash
-.\venv\Scripts\Activate.ps1
+venv\Scripts\activate.bat
 ```
 
-* **macOS/Linux:**
+* **macOS:**
 
 ```bash
 source venv/bin/activate
@@ -119,12 +121,22 @@ TOGETHER_API_KEY=<your_api_key>
 
 ## 5. 📚 Prepare Vector Database
 
+* **Windows:**
+```bash
+py load_data.py
+```
+* **macOS:**
 ```bash
 python load_data.py
 ```
 
 * Creates `documents.json` (text chunks)
 
+* **Windows:**
+```bash
+py build_index.py
+```
+* **macOS:**
 ```bash
 python build_index.py
 ```
@@ -134,7 +146,11 @@ python build_index.py
 ---
 
 ## 6. 🚀 Launch Web Interface
-
+* **Windows:**
+```bash
+py web_ui.py
+```
+* **macOS:**
 ```bash
 python web_ui.py
 ```
