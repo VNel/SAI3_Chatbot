@@ -1,0 +1,12 @@
+# requirements.txt
+# Python dependencies for the Cybersecurity RAG Chatbot (June 2025)
+
+fastapi
+uvicorn
+requests
+gradio
+python-dotenv
+faiss-cpu
+sentence-transformers
+numpy
+faiss-cpu
