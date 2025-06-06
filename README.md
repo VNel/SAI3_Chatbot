@@ -101,7 +101,6 @@ python-dotenv
 faiss-cpu
 sentence-transformers
 numpy
-faiss-cpu
 ```
 
 ---
