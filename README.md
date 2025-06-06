@@ -1,26 +1,14 @@
----
+# 🛡️ Cybersecurity RAG Chatbot
 
-title: "🛡️ Cybersecurity RAG Chatbot"
-author: "Carlos Gomez, Nelson Vidovic, Lirim Zahiri, Mouad Medini, Niklaus Joel"
-date: "`r format(Sys.Date(), '%d. %B %Y')`"
-output:
-html\_document:
-toc: true
-toc\_float: true
-number\_sections: true
-code\_folding: hide
--------------------
+# Introduction
 
-# Einleitung
-
-Ein kontextbasierter Chatbot zur Beantwortung sicherheitsrelevanter Fachfragen auf Basis von **500+ wissenschaftlichen Cybersecurity-Artikeln** (Textformat).
-Er liefert **schnelle, faktenbasierte Antworten** – ausschließlich basierend auf vorhandenen Dokumenten.
+A context-based chatbot designed to answer specialized cybersecurity questions based on **500+ scientific cybersecurity articles** (in text format). It provides **quick, fact-based answers** – solely grounded in the available documents.
 
 ---
 
-# 📌 Projektteam
+# 📌 Project Team
 
-Dieses Projekt wurde im Rahmen eines Moduls an der Berner Fachhochschule erstellt von:
+This project was created as part of a module at the Bern University of Applied Sciences by:
 
 * Carlos Gomez
 * Nelson Vidovic
@@ -30,45 +18,40 @@ Dieses Projekt wurde im Rahmen eines Moduls an der Berner Fachhochschule erstell
 
 ---
 
-# ✅ Voraussetzungen (einmalig)
+# ✅ Prerequisites (one-time setup)
 
-## 1. 🔧 Installiere Python (Version 3.8 oder 3.9)
+## 1. 🔧 Install Python (version 3.9 or higher)
 
-* Offizielle Website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-* Beim Setup **"Add Python to PATH" aktivieren**
-* Danach im Terminal prüfen:
+* Official website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
+* During setup, **enable "Add Python to PATH"**
+* Then verify installation in your terminal:
 
 ```bash
 python --version
 ```
 
-## 2. 🅿️ Together.ai Account erstellen
+## 2. 🧑🏽‍💻 Create a Together.ai Account
 
-* Besuche: [https://www.together.ai](https://www.together.ai)
-* Anmeldung z. B. via GitHub
-* Nach Login:
-
-  * Profilbild → **API Keys**
-  * → **Create API Key**
-  * Key kopieren (`sk-...`)
- 
-  
+1. Go to [https://www.together.ai](https://www.together.ai).
+2. Click "Sign Up" and register (no credit card needed).
+3. After logging in, go to your dashboard at [https://api.together.ai](https://api.together.ai).
+4. Navigate to "API Keys" (bottom-left corner).
+5. Click "Create new API key", give it a name (e.g. chatbot-key), and copy the key.
+6. Save the key securely.
+7. This key is free, but subject to rate limits (e.g. \~50 requests/min, \~200,000 tokens/day).
 
 ---
 
-# 🔧 Setup – Schritt für Schritt
+# 🔧 Setup – Step by Step
 
-## 1. 📁 Projekt klonen
-
-### Git-Variante
+## 1. 📁 Clone the Project via Git
 
 ```bash
 git clone https://github.com/VNel/SAI3_Chatbot.git
 cd online_chatbot
 ```
 
-
-## 2. 🧪 Virtuelle Umgebung einrichten
+## 2. 🪪 Set Up Virtual Environment
 
 * **Windows PowerShell:**
 
@@ -82,7 +65,7 @@ py -m venv venv
 python -m venv venv
 ```
 
-### Dann aktivieren:
+### Then activate:
 
 * **Windows PowerShell:**
 
@@ -98,118 +81,123 @@ source venv/bin/activate
 
 ---
 
-## 3. 📦 Notwendige Abhängigkeiten installieren
+## 3. 📦 Install Required Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Inhalt von `requirements.txt`
+### `requirements.txt` content:
 
 ```text
+fastapi
+uvicorn
+requests
+gradio
+python-dotenv
 faiss-cpu
 sentence-transformers
-gradio
-requests
-python-dotenv
+numpy
+faiss-cpu
 ```
 
 ---
 
-## 4. 🔐 API-Key eintragen
+## 4. 🔐 Add Your API Key
 
-```bash
-cp .env.template .env
-```
-
-Dann `.env` öffnen und den API Key eintragen:
+1. Select the file `.env.template`
+2. Rename it to `.env`
+3. Then open `.env` and insert your API key:
 
 ```env
-TOGETHER_API_KEY=sk-abc123xyz456
+TOGETHER_API_KEY=<your_api_key>
 ```
 
-> Ohne `.env` funktioniert die Kommunikation mit Together.ai nicht.
+> Without `.env`, the chatbot cannot communicate with Together.ai.
 
 ---
 
-## 5. 📚 Vektordatenbank vorbereiten
+## 5. 📚 Prepare Vector Database
 
 ```bash
 python load_data.py
+```
+
+* Creates `documents.json` (text chunks)
+
+```bash
 python build_index.py
 ```
 
-* Erstellt `documents.json` (Text-Chunks)
-* Erstellt `index.faiss` (semantischer Suchindex)
+* Creates `index.faiss` (semantic search index)
 
 ---
 
-## 6. 🚀 Webinterface starten
+## 6. 🚀 Launch Web Interface
 
 ```bash
 python web_ui.py
 ```
 
-Öffnet automatisch:
+Automatically opens:
 [http://localhost:7860](http://localhost:7860)
 
 ---
 
-# 💬 Funktionen
+# 💬 Features
 
-* Fragen auf Deutsch oder Englisch möglich
-* Antworten basieren **nur auf lokalen Texten**
-* Kein Halluzinieren
-* Transparente Quellenangabe pro Antwort
-* Falls keine Info vorhanden → klare Rückmeldung
-
----
-
-# 🔒 Sicherheit & Datenschutz
-
-| Punkt                         | Status |
-| ----------------------------- | ------ |
-| API Key bleibt lokal          | ✅      |
-| Keine Cloud-Speicherung       | ✅      |
-| Kein Login nötig              | ✅      |
-| Lokaler Zugriff via localhost | ✅      |
+* Ask questions in German or English
+* Answers are based **only on local documents**
+* No hallucination
+* Transparent source citation for each answer
+* If no relevant info is found → clear feedback
 
 ---
 
-# ✅ Fertig! – Funktionscheck
+# 🔒 Security & Privacy
 
-| Muss erfüllt sein            | ✅ |
-| ---------------------------- | - |
-| Python 3.8 / 3.9 installiert | ✅ |
-| Virtuelle Umgebung aktiv     | ✅ |
-| `pip install` erfolgreich    | ✅ |
-| `.env` mit API Key vorhanden | ✅ |
-| `load_data.py` erfolgreich   | ✅ |
-| `build_index.py` erfolgreich | ✅ |
-| `web_ui.py` gestartet        | ✅ |
+| Item                       | Status |
+| -------------------------- | ------ |
+| API key remains local      | ✅      |
+| No cloud storage           | ✅      |
+| No login required          | ✅      |
+| Local access via localhost | ✅      |
 
 ---
 
-# 📂 Dateistruktur (Auszug)
+# ✅ All Set! – Functionality Checklist
+
+| Requirement                     | ✅ |
+| ------------------------------- | - |
+| Python 3.9 or higher installed  | ✅ |
+| Virtual environment active      | ✅ |
+| `pip install` successful        | ✅ |
+| `.env` with API key present     | ✅ |
+| `load_data.py` ran successfully | ✅ |
+| `build_index.py` successful     | ✅ |
+| `web_ui.py` started             | ✅ |
+
+---
+
+# 📂 Folder Structure (excerpt)
 
 ```bash
-├── clean_data/               # 500 Cybersecurity-Artikel (.txt)
-├── vectorstore/             # Vektordatenbank (automatisch generiert)
+├── clean_data/               # 500 cybersecurity articles (.txt)
+├── vectorstore/             # Vector DB (auto-generated)
 │   ├── documents.json
 │   └── index.faiss
-├── .env                     # (von dir erstellt)
-├── load_data.py             # Texte verarbeiten
-├── build_index.py           # FAISS-Index erstellen
-├── query_pipeline.py        # Retrieval-Logik
-├── llm_api.py               # API-Anbindung an Together.ai
-├── web_ui.py                # Webinterface starten
-├── requirements.txt         # Python-Abhängigkeiten
-└── README.md                # Diese Anleitung
+├── .env                     # (created by you)
+├── load_data.py             # Process texts
+├── build_index.py           # Create FAISS index
+├── query_pipeline.py        # Retrieval logic
+├── llm_api.py               # Together.ai API integration
+├── web_ui.py                # Launch web interface
+├── requirements.txt         # Python dependencies
+└── README.md                # This guide
 ```
 
 ---
 
-# 📎 Hinweis
+# 📌 Note
 
-Dieses Projekt dient ausschließlich der Forschung und Lehre im Rahmen des Studiengangs Wirtschaftsinformatik.
-Es ist **nicht** für den produktiven oder kommerziellen Einsatz vorgesehen.
+This project is solely intended for **research and educational purposes** within the Business Information Technology program. It is **not** intended for production or commercial use.
