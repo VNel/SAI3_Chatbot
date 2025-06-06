@@ -33,7 +33,6 @@ venv/
 
 # === Umgebungsvariablen & Secrets ===
 .env
-.env.*
 
 # === IDE/Editor-spezifisch ===
 .vscode/
