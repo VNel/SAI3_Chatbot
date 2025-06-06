@@ -117,4 +117,10 @@ with gr.Blocks() as demo:
 
 # Launch the app on localhost:7860
 if __name__ == "__main__":
-    demo.launch(server_name="127.0.0.1", server_port=7860, show_error=True)
+    demo.launch(
+        server_name="127.0.0.1",
+        server_port=7860,
+        show_error=True,
+        inbrowser=True
+    )
+
