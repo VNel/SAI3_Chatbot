@@ -33,12 +33,13 @@ python --version
 ## 2. 🧑🏽‍💻 Create a Together.ai Account
 
 1. Go to [https://www.together.ai](https://www.together.ai).
-2. Click "Sign Up" and register (no credit card needed).
-3. After logging in, go to your dashboard at [https://api.together.ai](https://api.together.ai).
-4. Navigate to "API Keys" (bottom-left corner).
-5. Click "Create new API key", give it a name (e.g. chatbot-key), and copy the key.
-6. Save the key securely.
-7. This key is free, but subject to rate limits (e.g. \~50 requests/min, \~200,000 tokens/day).
+2. Click "Get started" and register (no credit card needed).
+3. After logging in, your API KEY will show up automatically.
+4. If not, go to your dashboard at [https://api.together.ai](https://api.together.ai).
+5. Navigate to "API Keys" (bottom-left corner).
+6. Click "Create new API key", give it a name (e.g. chatbot-key), and copy the key.
+7. Save the key securely.
+8. This key is free, but subject to rate limits (e.g. \~50 requests/min, \~200,000 tokens/day).
 
 ---
 
