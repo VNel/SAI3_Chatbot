@@ -61,10 +61,10 @@ cd SAI3_Chatbot/online_chatbot
 py -m venv venv
 ```
 
-* **macOS/Linux:**
+* **macOS:**
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 
 ### Then activate:
@@ -127,7 +127,7 @@ py load_data.py
 ```
 * **macOS:**
 ```bash
-python load_data.py
+python3 load_data.py
 ```
 
 * Creates `documents.json` (text chunks)
@@ -138,7 +138,7 @@ py build_index.py
 ```
 * **macOS:**
 ```bash
-python build_index.py
+python3 build_index.py
 ```
 
 * Creates `index.faiss` (semantic search index)
@@ -152,7 +152,7 @@ py web_ui.py
 ```
 * **macOS:**
 ```bash
-python web_ui.py
+python3 web_ui.py
 ```
 
 Automatically opens:
