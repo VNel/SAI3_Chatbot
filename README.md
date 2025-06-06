@@ -48,7 +48,7 @@ python --version
 
 ```bash
 git clone https://github.com/VNel/SAI3_Chatbot.git
-cd online_chatbot
+cd SAI3_Chatbot/online_chatbot
 ```
 
 ## 2. 🪪 Set Up Virtual Environment
